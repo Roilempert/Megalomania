@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megalomania</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head> 
+<body id="top">
+
+<div id="transition-overlay">
+    <img src="assets/images/loading.png" alt="Loading" class="loading-image">
+</div>
+
+<div id="uncanny-overlay"></div>
+
+
+    <header class="site-header">
+        <span class="subtitle">Home</span>
+        <span class="subtitle">About</span>
+    </header>
+
+    <section class="hero-section">
+        <main id="glass-canvas-container"></main>
+
+        <div class="hp-container">
+            <div class="hp-center-content">
+                <h1 class="hp-visual-element">God's Best Creations</h1>
+            </div>
+
+            <div class="hp-bottom-layout">
+                <div class="hp-bottom-textcontainer">
+                    <p class="subtitle">The complete Glossary</p>
+                </div>
+                <div class="hp-bottom-textcontainer">
+                    <p class="subtitle">According to the World Wide Web</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="index-page-container" id="main-index">
+        <div class="lead-paragraph snap-point">
+            <p class="lead-text">
+                Hey, guys! <br>
+                Quick thought because I can’t sleep: amidst all the chaos and weirdness of the universe, surely there is one thing that is just... perfect? Like, no notes, absolute masterpiece. What is actually God’s best creation?
+            </p>
+        </div>       
+        <div class="entries-list">
+            
+            <div class="hero-entry-wrapper">
+                <img src="assets/images/garlicbread1.png" alt="Garlic Bread" class="text-image1">
+                
+                <div class="index-entry snap-point">    
+                    <div class="entry-header">
+                        <h2 class="entry-title">Garlic Bread</h2>
+                        <span class="author-name">[GraveRobber666]</span>
+
+                        <img src="assets/images/garlicbread2.jpg" class="text-image4" alt="Garlic Bread">
+                        <span class="image-caption">Fig 1. A perfect looking garlic</span>
+                    </div>
+                    <div class="answer-reveal">
+                        <div class="article-content generaltext">
+                            
+                            <span class="drop-cap">G</span>arlic bread (also called garlic toast) consists of bread (usually baguette, sourdough or ciabatta) topped with garlic and usually olive oil or butter, and may include additional herbs, such as oregano, chives or parsley. It is then either grilled until toasted or baked in a conventional or bread oven.
+                            Garlic bread is typically made using a baguette, or sometimes ciabatta which is partially sliced downwards, allowing the condiments to soak into the loaf while keeping it in one piece. The bread is then stuffed through the cuts with oil and minced garlic before baking.                    
+                            Alternatively, butter and garlic powder are used, or the bread is cut lengthwise into separate slices which are individually garnished.
+
+                            <br><br> <span class="mini-title">History</span>
+                            Garlic bread stems from bruschetta, which appeared in Italy around the 15th century, and can be traced back to ancient Rome. Contemporary garlic bread originated in the United States and it is a typical Italian-American dish. <blockquote class="quote-box right">
+                                <p class="quote-text">Nothing. Imaginary things don’t make things.</p>
+                                <cite class="quote-author">[Unknown]</cite>
+                            </blockquote>Garlic bread may have originated after Italian immigrants started to use butter as a substitute for olive oil, which was uncommon in the United States in the first half of the 20th century.
+
+                            <br><br><span class="mini-title">Europe</span>
+                            In France, it was common in Provence, where it was called chapon and served with salad. It was also prepared in other regions, such as Quercy, as a crust of bread rubbed with garlic and spiced with a pinch of salt along with a drop of walnut oil. 
+                            In England, butter is used instead of olive oil in garlic bread. Most supermarket garlic baguettes in the UK are made at Aston by Wrenbury in Cheshire, the former site of Lymeswold cheese until 1992, known as Bakkavör Pizza & Bread Aston, employing around 300 people.
+                            In Lithuania, kepta duona is a fried bread dish involving black rye bread that has been rubbed with garlic. It is often eaten as a bar snack.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="index-entry snap-point">
+                <div class="entry-header">
+                    <h2 class="entry-title">Adult Films</h2>
+                    <span class="author-name">[RTGac]</span>
+                </div>
+                <div class="answer-reveal">
+                    <div class="article-content generaltext">
+                        <img src="assets/images/adultfilms1.jpg" alt="Film Reel" class="text-image2">
+                        <span class="image-caption">Fig 2. Vintage film reel collection</span>
+
+                        <span class="drop-cap">P</span>ornographic films (colloquially porn films, pornos, porn), sex films, erotic films, adult films, blue films, sexually explicit films, or 18+ films are films that represent sexually explicit subject matter in order to arouse, fascinate, or satisfy the viewer. Pornographic films represent sexual fantasies and usually include erotically stimulating material such as nudity or fetishes (softcore) and sexual intercourse (hardcore). A distinction is sometimes made between "erotic" and "pornographic" films on the basis that the latter category contains more explicit sexuality, and focuses more on arousal than storytelling; the distinction is highly subjective.
+                        <br><br>
+                        Pornographic films are produced and distributed on a variety of media, depending on the demand and technology available, including traditional film stock footage in various formats, home video, DVDs, mobile devices, Internet pornography, Internet download, or cable TV, in addition to other media. Pornography is often sold or rented on DVD; shown through Internet streaming,
+
+                        specialty channels and pay-per-view on cable and satellite; and viewed in rapidly disappearing adult movie theater. Often due to broadcast or print censorship commissions, general public opinion, public decency laws, or religious pressure groups, overly sexualized content is generally not permitted in mainstream media or on free-to-air television.
+                        <br><br>
+                        
+                        Films with risqué content have been produced since the invention of motion pictures in the 1880s. Production of such films was profitable, and a number of producers specialized in their production. Various groups within society considered such depictions immoral, labeled them "pornographic", and attempted to have them suppressed under other obscenity laws, with varying degrees of success. 
+                        
+                            
+                        Such films continued to be produced, and could initially only be distributed by underground channels. Because the viewing of such films carried a social stigma, they were viewed at brothels, adult movie theaters, stag parties, home, private clubs, and night cinemas.
+                        
+                        <br><br>
+
+                            <blockquote class="quote-box right">
+                                <p class="quote-text">"I just love everything God has created. It is an amazingly beautiful orderly creation that can take your breathe away.. If only sin did not exist, earth would literally be paradise.<br> That is a BIG if."</p>
+                                <cite class="quote-author">[Unknown]</cite>
+                           </blockquote>
+                        In the 1970s, during the Golden Age of Porn, pornographic films were semi-legitimized, to the point where actors not known for appearances in such productions would be cast members (though rarely participating in the explicit scenes); by the 1980s, pornography on home video achieved wider distribution. The rise of the Internet in the late 1990s and early 2000s changed the way pornographic films were distributed, complicating censorship regimes around the world and legal prosecutions of "obscenity".
+                        <img src="assets/images/adultfilms2.jpg" alt="Film Reel" class="text-image3">
+                        <span class="image-caption">Fig 3. A Gross Film Set</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="index-entry snap-point">
+                <div class="entry-header">
+                    <h2 class="entry-title">Nature</h2>
+                    <span class="author-name">[onnybebad5436]</span>
+ 
+                </div>
+                <div class="answer-reveal">
+                    <div class="article-content generaltext">
+                        <img src="assets/images/nature1.png" alt="Nature Landscape" class="nature-earth-image">
+                        
+                        <span class="drop-cap">N</span>ature is an inherent character or constitution, particularly of the ecosphere or the universe as a whole. In this general sense nature refers to the laws, elements and phenomena of the physical world, including life. Although humans are part of nature, human activity or humans as a whole are often described as at times at odds, or outright separate and even superior to nature.<br><br>
+                        During the advent of modern scientific method in the last several centuries, nature became the passive reality, organized and moved by divine laws. With the Industrial Revolution, nature increasingly became seen as the part of reality deprived from intentional intervention: it was hence considered as sacred by some traditions (Rousseau, American transcendentalism) or a mere decorum for divine providence or human history (Hegel, Marx). However, a vitalist vision of nature, closer to the pre-Socratic one, got reborn at the same time, especially after Charles Darwin.
+                        <br><br>
+
+                        <div class="float-wrapper">
+                            <img src="assets/images/nature2.jpg" class="text-image5" alt="Nature">
+                            <span class="image-caption">Fig 4. "nature"</span>  
+                        </div>
+                        Within the various uses of the word today, "nature" often refers to geology and wildlife. Nature can refer to the general realm of living beings, and in some cases to the processes associated with inanimate objects—the way that particular types of things exist and change of their own accord, such as the weather and geology of the Earth. It is often taken to mean the "natural environment" or wilderness—wild animals, rocks, forest, and in general those things that have not been substantially altered by human intervention, or which persist despite human intervention. For example, manufactured objects and human interaction generally are not considered part of nature, unless qualified as, for example, "human nature" or "the whole of nature". This more traditional concept of natural things that can still be found today implies a distinction between the natural and the artificial, with the artificial being understood as that which has been brought into being by a human consciousness or a human mind. Depending on the particular context, the term "natural" might also be distinguished from the unnatural or the supernatural. <br><br>  
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="index-entry snap-point">
+                <div class="entry-header">
+                    <h2 class="entry-title">Art</h2>
+                    <span class="author-name">[[Unknown User]]</span>
+                </div>
+                <div class="answer-reveal">
+                    <div class="article-content generaltext">
+                            <img src="assets/images/art1.jpg" alt="Classic Art" class="text-image2">
+                            <span class="image-caption">Fig 5. Nice looking Art</span>  
+                        <span class="drop-cap">A</span>rt is a diverse range of cultural activity centered around works utilizing creative or imaginative talents, which are expected to evoke a worthwhile experience, generally through an expression of emotional power, conceptual ideas, technical proficiency, or beauty.
+                        <br><br>
+                        There is no generally agreed definition of what constitutes art, and its interpretation has varied greatly throughout history and across cultures. In the Western tradition, the three classical branches of visual art are painting, sculpture, and architecture. Theatre, dance, and other performing arts, as well as literature, music, film and other media such as interactive media, are included in a broader definition of "the arts". Until the 17th century, art referred to any skill or mastery and was not differentiated from crafts or sciences. In modern usage after the 17th century, where aesthetic considerations are paramount, the fine arts are separated and distinguished from acquired skills in general, such as the decorative or applied arts.
+                        <br><br>
+                        The nature of art and related concepts, such as creativity and interpretation, are explored in a branch of philosophy known as aesthetics.The resulting artworks are studied in the professional fields of art criticism and the history of art.
+                    </div>
+                </div>
+            </div>
+
+            <div class="index-entry snap-point">
+                <div class="entry-header">
+                    <h2 class="entry-title">Hot Dog</h2>
+                    <span class="author-name">[GlizzyGobbler99]</span>
+                        <img src="assets/images/hotdog1.jpg" alt="Delicious Hot Dog" class="text-image">
+                        <span class="image-caption">Fig 6. Makes me weak, this is too much</span>
+                </div>
+                <div class="answer-reveal">
+                    <div class="article-content generaltext">
+
+                        <span class="drop-cap">A</span> hot dog is a grilled, steamed, or boiled sausage served in the slit of a partially sliced bun. The term hot dog can also refer to the sausage itself. The sausage used is a wiener (Vienna sausage) or a frankfurter (Frankfurter Würstchen, also just called frank). The names of these sausages commonly refer to their assembled dish. Hot dog preparation and condiments vary worldwide. Common condiments include mustard, ketchup, relish, onions in tomato sauce, and cheese sauce. Other toppings include sauerkraut, diced onions, jalapeños, chili, grated cheese, coleslaw, bacon and olives. Hot dog variants include the corn dog and pigs in a blanket. The hot dog's cultural traditions include the Nathan's Hot Dog Eating Contest and the Oscar Mayer Wienermobile.
+                        <br><br>
+                        These types of sausages were culturally imported from Germany and became popular in the United States. It became a working-class street food in the U.S., sold at stands and carts. The hot dog has become closely associated with baseball and American culture. Although particularly connected with New York City and its cuisine, the hot dog eventually became ubiquitous throughout the US during the 20th century. Its preparation varies regionally in the country, emerging as an important part of other regional cuisines, including Chicago street cuisine.
+
+                        <br><br><span class="mini-title">History</span>
+                        The word frankfurter comes from Frankfurt, Germany, where pork sausages similar to hot dogs originated. These sausages, Frankfurter Würstchen, were known since the 13th century and given to the people on the event of imperial coronations, starting with the coronation of Maximilian II, Holy Roman Emperor, as King. "Wiener" refers to Vienna, Austria (German: Wien), home to a sausage made of a mixture of pork and beef. Johann Georg Lahner, an 18th/19th century butcher from the Franconian city of Coburg, is said to have brought the Frankfurter Würstchen to Vienna, where he added beef to the mixture and simply called it Frankfurter. Nowadays, in German-speaking countries, except Austria, hot dog sausages are called Wiener or Wiener Würstchen (Würstchen means "little sausage"), to differentiate them from the original pork-only mixture from Frankfurt. In Swiss German, it is called Wienerli, while in Austria the terms Frankfurter or Frankfurter Würstel are used.
+                        <br><br>
+                        A German immigrant named Feuchtwanger, from Frankfurt, in Hesse, allegedly pioneered the practice in the American Midwest; there are several versions of the story with varying details. According to one account, Feuchtwanger's wife proposed the use of a bun in 1880: Feuchtwanger sold hot dogs on the streets of St. Louis, Missouri, and provided gloves to his customers so that they could handle the sausages without burning their hands. Losing money when customers did not return the gloves, Feuchtwanger's wife suggested serving the sausages in a roll instead. In another version, Antoine Feuchtwanger, or Anton Ludwig Feuchtwanger, served sausages in rolls at the World's Fair – either at the 1904 Louisiana Purchase Exposition in St. Louis, or, earlier, at the 1893 World's Columbian Exposition, in Chicago – again, allegedly because the white gloves provided to customers to protect their hands were being kept as souvenirs.
+
+                        Another possible origin for serving the sausages in rolls is the pieman Charles Feltman, at Coney Island in New York City. In 1867 he had a cart made with a stove on which to boil sausages, and a compartment to keep buns in which they were served fresh. In 1871 he leased land to build a permanent restaurant, and the business grew, selling far more than just the "Coney Island Red Hots" as they were known. 
+                    </div>
+                </div>
+            </div>
+            <div class="lead-paragraph2 snap-point">
+                <p class="lead-text">
+                    that one deep-sea worm that looks exactly like a floating buttcrack because it always makes me laugh everytime I see it.
+                </p>
+            </div>   
+            
+            <div class="index-entry snap-point">
+                <div class="entry-header">
+                    <h2 class="entry-title">Cigarettes</h2>
+                    <span class="author-name">[CancerStick69]</span>
+                    
+                    <img src="assets/images/cigarette1.jpg" class="text-image4" alt="Pack of cigarettes">
+                    <span class="image-caption">Fig 7. Can't live with them, can't live without them</span>
+                </div>
+                <div class="answer-reveal">
+                    <div class="article-content generaltext">
+                        <span class="drop-cap">A</span> cigarette is a thin cylinder of tobacco rolled in thin paper for smoking. The cigarette is ignited at one end, causing it to smolder, and the resulting smoke is orally inhaled via the opposite end. Cigarette smoking is the most common method of tobacco consumption. The term cigarette refers to a tobacco cigarette, but the word is sometimes used to refer to other substances, such as a cannabis cigarette or a herbal cigarette. A cigarette is distinguished from a cigar by its usually smaller size, use of processed leaf, different smoking method, and paper wrapping, which is typically white.
+                        <br><br>
+                        Deaths from smoking cigarettes are caused by diseases such as cancer, chronic obstructive pulmonary disease (COPD), heart disease, birth defects, and other health problems relating to nearly every organ of the body. Most modern cigarettes are filtered, but this does not make the smoke inhaled from them contain fewer carcinogens or harmful chemicals. Nicotine, the psychoactive drug in tobacco, makes cigarettes highly addictive. About half of cigarette smokers die of tobacco-related disease and lose on average 14 years of life. Every year, cigarette smoking causes more than 8 million deaths worldwide; more than 1.3 million of these are non-smokers dying as a result of exposure to secondhand smoke. These harmful effects have led to legislation that has prohibited smoking in many workplaces and public areas, regulated marketing and purchasing age of tobacco, and levied taxes to discourage cigarette use.
+
+                        In the 21st century, electronic cigarettes (also called e-cigarettes or vapes) were developed, whereby a substance contained within the device (typically a liquid solution containing nicotine) is vaporized by a battery-powered heating element as opposed to being burned. Although e-cigarettes are less harmful than conventional cigarettes there are significant health risks associated with their use.
+
+                        <br><br>
+                        <span class="mini-title">Health effects</span>
+
+                        The harm from smoking comes from the many toxic chemicals in the natural tobacco leaf and those formed in smoke from burning tobacco. A 2024 study estimated that each cigarette reduces life expectancy by 20 minutes, while other studies estimate that each one reduces life expectancy by about 11 minutes on average. Humans continue to smoke because nicotine, the primary psychoactive chemical in cigarettes, is highly addictive. Cigarettes, like narcotics, have been described as "strategically addictive", with their addictive properties being a core component of the business strategy. 
+                        <br><br>
+                        About half of smokers die from a smoking-related cause. Smoking harms nearly every organ of the body. Smoking leads most commonly to diseases affecting the heart, liver, and lungs, being a major risk factor for heart attacks, strokes, chronic obstructive pulmonary disease (COPD) (including emphysema and chronic bronchitis), and cancer (particularly lung cancer, cancers of the larynx and mouth, and pancreatic cancer). It also causes peripheral vascular disease and hypertension. The incidence of erectile dysfunction is approximately 85 percent higher in men who smoke compared to men who do not smoke. Children born to women who smoke during pregnancy are at higher risk of congenital disorders, cancer, respiratory disease, and sudden death. Starting smoking earlier in life and smoking cigarettes higher in tar content increases the risk of these diseases. The World Health Organization estimates that tobacco causes 8 million deaths each year as of 2019 and ultimately caused 100 million deaths over the course of the 20th century. Cigarettes produce an aerosol containing over 4,000 chemical compounds, including nicotine, carbon monoxide, acrolein, and oxidant substances. Over 70 of these are carcinogens.
+                        <br><br>
+
+                        <span class="mini-title">Secondhand smoke</span>
+                        Secondhand smoke is a mixture of smoke from the burning end of a cigarette and the smoke exhaled from the lungs of smokers. It is involuntarily inhaled, lingers in the air for hours after cigarettes have been extinguished, and can cause a wide range of adverse health effects, including cancer, respiratory infections, and asthma.[123] Nonsmokers who are exposed to second-hand smoke at home or work increase their heart disease risk by 25–30% and their lung cancer risk by 20–30%. 
+
+                        
+                        Second-hand smoke has been estimated to cause 38,000 deaths per year, of which 3,400 are deaths from lung cancer in nonsmokers.[124] Sudden infant death syndrome, ear infections, respiratory infections, and asthma attacks can occur in children who are exposed to second-hand smoke. Scientific evidence shows that no level of exposure to second-hand smoke is safe.
+                        <br>
+                        <blockquote class="quote-box right">
+                            <p class="quote-text">"There’s very few places and scenarios in the world where I feel closer to God than going outside and appreciating the beautiful world he made for us."</p>
+                            <cite class="quote-author">[Unknown]</cite>
+                        </blockquote>
+                        <br>
+                        <img src="assets/images/cigarette2.jpg" alt="Lit Cigarette" class="text-image3">
+                        <span class="image-caption">Fig 8. "closer to God"</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="index-entry snap-point">
+                <div class="entry-header">
+                    <h2 class="entry-title">Dogs</h2>
+                    <span class="author-name">[sarbear1957]</span>
+                    
+                </div>
+                <div class="answer-reveal">
+                    <div class="article-content generaltext">
+
+                        <div class="float-wrapper">
+                        <img src="assets/images/dogs1.jpg" alt="A lovely photo" class="text-image5">
+                        <span class="image-caption">Fig 9. Predator and Scavenger</span>
+                        </div>
+
+                        <span class="drop-cap">T</span>he dog (Canis familiaris or Canis lupus familiaris) is a domesticated descendant of wolves. Also called the domestic dog, it was selectively bred during the Late Pleistocene by hunter-gatherers. Dogs and the modern gray wolf share a common ancestor. Dogs were the first species to be domesticated over 14,000 years ago, before the development of agriculture, though genetic studies suggest the domestication process may have begun over 25,000 years ago. Due to their long association with humans, dogs have gained the ability to thrive on a starch-rich diet that would be inadequate for other canids.
+                        <br><br>
+                        Dogs have been bred for desired behaviors, sensory capabilities, and physical attributes. Dog breeds vary widely in shape, size, and color. They have the same number of bones (with the exception of the tail), powerful jaws that house around 42 teeth, and well-developed senses of smell, hearing, and sight. Compared to humans, dogs possess a superior sense of smell and hearing, but inferior visual acuity. Dogs perform many roles for humans, such as hunting, herding, pulling loads, protection, companionship, therapy, aiding disabled people, and assisting police and the military.
+                        <br><br>
+                        Communication in dogs includes eye gaze, facial expression, vocalization, body posture (including movements of bodies and limbs), and chemical communication (scents, pheromones, and taste). They mark their territories by urinating on them, which is more likely when entering a new environment. Over the millennia, dogs have uniquely adapted to human behavior; this adaptation includes being able to understand and communicate with humans. As such, the human–canine bond has been a topic of frequent study, and dogs' influence on human society has given them the sobriquet of "man's best friend".
+
+                        <br><br>
+                        The global dog population is estimated at 700 million to 1 billion, distributed around the world. The dog is the most popular pet in the United States, present in 34–40% of households. Developed countries make up approximately 20% of the global dog population, while around 75% of dogs are estimated to be from developing countries, mainly in the form of feral and street dogs.
+                        
+
+                        The domesticated dog originated as a predator and scavenger. They inherited complex behaviors, such as bite inhibition, from their wolf ancestors, which would have been pack hunters with complex body language. These sophisticated forms of social cognition and communication may account for dogs' trainability, playfulness, and ability to fit into human households and social situations, and probably also their co-existence with early human hunter-gatherers.
+                        
+                        <div class="float-wrapper2">
+                        <img src="assets/images/dogs2.jpg" alt="A lovely photo" class="text-image5">
+                        <span class="image-caption">Fig 9. Predator and Scavenger</span>
+                        </div>
+                        Dogs perform many roles for people, such as hunting, herding, pulling loads, protection, assisting police and the military, companionship, and aiding disabled individuals. These roles in human society have earned them the nickname "man's best friend" in the Western world. In some cultures, however, dogs are also a source of meat. 
+                        <br><br>
+
+                        
+                        
+                        The keeping of dogs as companions, particularly by elites, has a long history. Pet-dog populations grew significantly after World War II as suburbanization increased. In the 1980s, there have been changes in the pet dog's functions, such as the increased role of dogs in the emotional support of their human guardians. Within the second half of the 20th century, more and more dog owners considered their animal to be a part of the family. This major social status shift allowed the dog to conform to social expectations of personality and behavior. The second has been the broadening of the concepts of family and the home to include dogs-as-dogs within everyday routines and practices.
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="lead-paragraph3 snap-point">
+                <p class="lead-text">
+                    Can you be more specific?<br> Which god?
+                </p>
+            </div>   
+
+            <div class="index-entry snap-point">
+                <div class="entry-header">
+                    <h2 class="entry-title">My Wife</h2>
+                    <span class="author-name">[beerbellianme]</span>
+                        <img src="assets/images/wife2.jpg" alt="A lovely photo" class="text-image6">
+                        <span class="image-caption">Fig 12. Good ol' Times</span> 
+                </div>
+                <div class="answer-reveal">
+                    <div class="article-content generaltext">
+                        <img src="assets/images/wife1.png" alt="A lovely photo" class="text-image2">
+                        <span class="image-caption">Fig 11. Poor woman</span>  
+
+                        <span class="drop-cap">A</span> wife (pl.: wives) is a woman in a marital relationship. A woman who has separated from her partner continues to be a wife until their marriage is legally dissolved with a divorce judgment; or until death, depending on the kind of marriage. On the death of her partner, a wife is referred to as a widow. The rights and obligations of a wife to her partner and her status in the community and law vary between cultures and have varied over time.
+                        <br><br>
+                        <span class="mini-title">Etymology</span>
+                        The word is of Germanic origin from the Proto-Germanic word wībam, which translates into "woman". In Middle English, it had the form wif, and in Old English wīf, "woman or wife". It is related to Modern German Weib (woman, female), Danish viv (wife, usually poetic), and Dutch wijf (woman, generally pejorative, cf. bitch). The original meaning of the phrase "wife" as simply "woman", unconnected with marriage or a husband/wife, is preserved in words such as "midwife", "goodwife", "fishwife" and "spaewife".
+                        <br><br>
+
+                        <span class="mini-title">Changes after marriages</span>
+                        After marriage, it is generally expected in many cultures that a woman will take her husband's surname, though this is not universal. A married woman may indicate her marital status in a number of ways: in Western culture, a married woman would commonly wear a wedding ring, but in other cultures, other markers of marital status may be used. A married woman is commonly given the title "Mrs", but some married women prefer to be referred to as "Ms", a title which is also used by preference or when the marital status of a woman is unknown.
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+
+            <div class="index-entry snap-point">
+                <div class="entry-header">
+                    <h2 class="entry-title">Toilet Paper</h2>
+                    <span class="author-name">[Chawnci7]</span>
+                </div>
+                <div class="answer-reveal">
+                    <div class="article-content generaltext">
+                        <div class="float-wrapper">
+                            <img src="assets/images/toiletpaper1.jpg" class="text-image5" alt="toiletpaper">
+                            <span class="image-caption">Fig 13. Indeed... Heaven</span>  
+                        </div> 
+                        <span class="drop-cap">T</span>oilet paper (also referred to as toilet/bath/bathroom tissue or toilet roll) is a tissue paper product primarily used to clean the anus and surrounding region of feces (after defecation), and to clean the external genitalia and perineal area of urine (after urination).
+                        It is commonly supplied as a long strip of perforated paper wrapped around a cylindrical paperboard core, for storage in a dispenser within arm's reach of a toilet. The bundle, or roll of toilet paper, is specifically known as a toilet roll, loo roll, or bog roll (in Britain).
+                        <br><br>
+                        There are other uses for toilet paper, as it is a readily available household product. It can be used for blowing the nose or wiping the eyes (or other uses of facial tissue). It can be used to wipe off sweat or absorb it. Some people may use the paper to absorb the bloody discharge that comes out of the vagina during menstruation.
+                        Toilet paper can be used in cleaning (like a less abrasive paper towel). As a teenage prank,                            <blockquote class="quote-box left">
+                                    <p class="quote-text">"Inventions are invented, Creations are created. I don't know what God created, But one thing is for sure – <span id="god-trigger" data-text="Man invented God">Man invented God</span>. Happy to help."</p>
+                                <cite class="quote-author">[Unknown]</cite>
+                        </blockquote> 
+                        "toilet papering" is a form of temporary vandalism.
+                        
+                        <br><br>
+                        
+                        Most modern toilet paper in the developed world is designed to decompose in septic tanks, whereas some other bathroom and facial tissues are not. Wet toilet paper rapidly decomposes in the environment.
+     
+                        Toilet paper comes in various numbers of plies (layers of thickness), from one- to six-ply, with more back-to-back plies providing greater strength and absorbency. Most modern domestic toilet paper is white, and embossed with a pattern, which increases the surface area of the paper, and thus, its effectiveness at removing waste. Some people have a preference for whether the orientation of the roll on a dispenser should be over or under.
+
+
+                        <br><br>
+                        The use of paper for hygiene has been recorded in China in the 6th century AD, with specifically manufactured toilet paper being mass-produced in the 14th century. Modern commercial toilet paper originated in the 19th century, with a patent for roll-based dispensers being made in 1883.
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </main>
+
+<script type="module" src="js/homepage.js"></script>
+    
+<script type="module" src="js/general.js"></script>
+    
+</body>
+</html>
