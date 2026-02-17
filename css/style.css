@@ -1,0 +1,994 @@
+/* =========================================
+   1. GLOBAL SETTINGS & RESET
+   ========================================= */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-snap-type: y proximity; 
+    scroll-behavior: smooth;
+    scroll-padding-top: 40px;
+}
+
+.snap-point {
+    scroll-snap-align: start;  
+    scroll-snap-stop: always;  
+    scroll-margin-top: 40px;
+}
+
+body {
+    background-color: #faf9f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* CRITICAL: Hides horizontal overflow */
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+canvas {
+    background: transparent !important;
+    outline: none;
+}
+
+/* =========================================
+   2. TYPOGRAPHY
+   ========================================= */
+@font-face {
+    font-family: "AdvercaseFont";
+    font-weight: 400; 
+    font-style: normal;
+    src: url("../assets/fonts/AdvercaseFont-Demo-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "AdvercaseFont";
+    font-weight: 700; 
+    font-style: normal;
+    src: url("../assets/fonts/AdvercaseFont-Demo-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    font-weight: 300;
+    font-style: normal;
+    src: url("../assets/fonts/NeueMontreal-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    font-weight: 300;
+    font-style: italic;
+    src: url("../assets/fonts/NeueMontreal-LightItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    font-weight: 400;
+    font-style: normal;
+    src: url("../assets/fonts/NeueMontreal-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    font-weight: 400;
+    font-style: italic;
+    src: url("../assets/fonts/NeueMontreal-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    font-weight: 500;
+    font-style: normal;
+    src: url("../assets/fonts/NeueMontreal-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    font-weight: 500;
+    font-style: italic;
+    src: url("../assets/fonts/NeueMontreal-MediumItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    font-weight: 700; 
+    font-style: normal;
+    src: url("../assets/fonts/NeueMontreal-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    font-weight: 700;
+    font-style: italic;
+    src: url("../assets/fonts/NeueMontreal-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "LibreBaskerville";
+    font-weight: 400;
+    font-style: normal;
+    src: url("../assets/fonts/LibreBaskerville-Regular.woff2") format("woff2");
+}
+
+/* =========================================
+   3. SITE HEADER
+   ========================================= */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    background-color: transparent;
+    z-index: 1000;
+}
+
+.site-header .subtitle {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.site-header .subtitle:hover {
+    opacity: 0.6;
+}
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+#glass-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: auto;
+}
+
+.hp-container {
+    margin: 36px;
+    height: calc(100% - 144px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    pointer-events: none;
+}
+
+.hp-center-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+h1 {
+    font-family: "NeueMontreal", serif;
+    font-size: 14vw;
+    line-height: 28vh;
+    font-weight: 400;
+    white-space: nowrap;
+    color: #0000EE;
+    opacity: 0; 
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.subtitle {
+    font-family: "NeueMontreal", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14pt;
+    color: #000;
+}
+
+.hp-visual-element {
+    position: relative;
+    z-index: 1;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    transform: rotate(0deg);
+}
+
+.hp-bottom-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 350px;
+    pointer-events: auto;
+    padding-bottom: 0px;
+}
+
+.hp-bottom-textcontainer {
+    display: flex;
+    width: auto;
+}
+
+/* =========================================
+   5. INDEX PAGE CONTAINER (ENTRIES LIST)
+   ========================================= */
+.index-page-container {
+    padding: 40px 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #faf9f5;
+    position: relative;
+    z-index: 20;
+}
+
+.entries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    margin-top: 0px;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Leading Paragraphs --- */
+.lead-paragraph {
+    width: 75%;      
+    margin: 0 auto;      
+    padding: 20px 20px 200px 20px; 
+    margin-top: 20px;
+    margin-bottom: 180px;
+    text-align: left;  
+    background: #cdcdcd;
+    border-radius: 5px;
+}
+
+.lead-text {
+    font-family: "NeueMontreal", sans-serif;
+    font-size: 3.5rem;   
+    font-weight: 500;    
+    line-height: 1.1;
+    display: block;
+    color: #000;
+    padding-left: 20px;
+    border-left: #000000 3px hidden;
+}
+
+.lead-paragraph2 {
+    width: 75%;
+    height: 80vh;      
+    margin: 0 auto;      
+    padding: 460px 20px 0px 20px; 
+    margin-top: 20px;
+    margin-bottom: 100px;
+    text-align: left;  
+    background: #cdcdcd;
+    border-radius: 5px;
+}
+
+.lead-paragraph3 {
+    width: 75%;
+    height: 80vh;      
+    margin: 0 auto;      
+    padding: 470px 20px 20px 20px; 
+    margin-top: 20px;
+    margin-bottom: 100px;
+    text-align: left;  
+    background: #cdcdcd;
+    border-radius: 5px;
+}
+
+/* =========================================
+   6. INDEX ENTRY STRUCTURE (FLEXBOX)
+   ========================================= */
+.index-entry {
+    /* 1. Global Entry Sizing */
+    width: 100%;
+    max-width: 1600px;
+    
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 20px; /* Space between Header and Content */
+    
+    /* 3. Global Spacing */
+    margin-bottom: 120px;
+    padding: 0 20px 40px 20px;
+    box-sizing: border-box;
+    cursor: default;
+    min-height: 100vh;
+}
+
+.index-entry:nth-child(even) {
+ padding-left: 20px;
+}
+
+/* --- Entry Header (Left Side) --- */
+.entry-header {
+    margin: 0;
+    padding: 0;
+    width: 25vw;
+    height: 100%;
+    min-width: 25vw;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    text-align: right;
+    gap: 15px; 
+    text-wrap: nowrap;
+}
+
+.entry-title {
+    font-family: "NeueMontreal", sans-serif;
+    font-size: 3.5rem; 
+    font-weight: 500;    
+    line-height: 1.0;
+    margin: 0;
+    color: #282828;
+    width: fit-content;
+    background-color: #cdcdcd;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.author-name {
+    display: block; 
+    position: static;
+    margin: 0 0 0 20px;
+    padding: 0;
+    
+    font-family: "NeueMontreal", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.2vw;
+    color: #000;
+    white-space: normal;
+}
+
+.generaltext {
+    font-family: "LibreBaskerville", sans-serif;
+    font-size: 16pt;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #000000;
+    padding: 0 10px;
+}
+
+.mini-title {
+    font-family: "LibreBaskerville", sans-serif;
+    font-size: 16pt;   
+    font-weight: 400;  
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+}
+
+.drop-cap {
+    float: left;
+    font-family: "NeueMontreal", sans-serif;
+    font-size: 3.5rem;   
+    font-weight: 500;    
+    line-height: 0.75;   
+    margin-right: 5px;  
+    margin-top: 5px;    
+    margin-bottom: -5px;
+    padding-top: 2px;
+}
+
+/* --- Entry Body (Right Side) --- */
+.answer-reveal {
+    /* LAYOUT: Fills remaining space */
+    flex-grow: 1;
+
+    /* ANIMATION: Hidden by default */
+    display: block;
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+    min-width: 0;
+    padding-left: 0;
+}
+
+.answer-reveal.is-revealed {
+    opacity: 1; /* Fades in */
+}
+
+/* =========================================
+   7. ARTICLE CONTENT ELEMENTS (IMAGES)
+   ========================================= */
+.article-content {
+    width: 100%; 
+    margin-top: 0px;
+    padding-right: 20px;
+    text-align: left; 
+    text-align-last: left; 
+    position: relative;
+    z-index: 6; 
+}
+
+.offset-text {
+    margin-left: -20vw;  
+    padding-left: 10px; 
+    /* Keeps it working with the float */
+    display: block; 
+}
+
+/* --- TYPE 1: Hero / Full Width (e.g. Garlic Bread) --- */
+.text-image1 {
+    width: 100%; 
+    height: auto;
+    display: block;
+    object-fit: cover;
+    margin-bottom: 40px;
+    border-radius: 5px;
+}
+
+/* --- TYPE 2: Standard Content (e.g. Art, Toilet Paper, Wife, Adult Films 1) --- */
+.text-image2 {
+    margin: 0px 0px 10px 0px;
+    width: 70vw;
+    height: auto;
+    shape-image-threshold: 0.2;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 5px;
+}
+
+/* Fix for Type 2 images inside text containers */
+
+
+/* --- TYPE 3: Secondary / Bordered (e.g. Adult Films 2) --- */
+.text-image3 {
+    margin-top: 10px;
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: calc(100% - 32vw);
+    height: auto;
+    border-radius: 5px;
+}
+
+.text-image4 {
+    width: 100%;           /* Fills the 20vw column width */
+    height: auto;
+    border-radius: 5px;
+    align-self: flex-end; 
+}
+
+
+/* --- NEW WRAPPER CLASS --- */
+.float-wrapper {
+    float: right;          /* Pushes the block to the right (text wraps on left) */
+    width: 25vw;           /* The width of your image block */
+    margin-left: 30px;     /* Space between text and image */
+    margin-bottom: 20px;   /* Space below the caption */
+    clear: right;          /* Prevents stacking issues */
+}
+
+.text-image5 {
+    width: 100%;           /* Now it fills the wrapper, instead of being fixed 30vw */
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    
+    /* Remove padding/box-sizing if you want a clean wrap, 
+       or keep them if you want the border look */
+    box-sizing: border-box; 
+    z-index: 1;
+}
+
+/* Ensure the caption inside the wrapper behaves nicely */
+.float-wrapper .image-caption {
+    width: 100%;
+    margin-top: 8px;
+    text-align: left;      /* Or center, if you prefer */
+}
+
+.float-wrapper2 {
+    width: 25vw;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    float: left;      /* Or center, if you prefer */
+}
+
+
+
+.text-image6 {
+    width: 100%;           /* Fills the 20vw column width */
+    height: auto;
+    border-radius: 5px;
+    align-self: flex-end; 
+    margin-top: 190vh;
+}
+
+.text-image5 {
+    width: 100%;           /* Now it fills the wrapper, instead of being fixed 30vw */
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    
+    /* Remove padding/box-sizing if you want a clean wrap, 
+       or keep them if you want the border look */
+    box-sizing: border-box; 
+    z-index: 1;
+}
+
+.image-caption {
+    /* Match Author Name Style */
+    font-family: "NeueMontreal", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.2vw;  /* Matches author size. Use '14px' if you want a fixed size */
+    color: #000;
+    
+    /* Positioning */
+    display: block;
+    margin-bottom: 20px; /* Space after the caption */
+    width: 100%;
+}
+
+/* Specific fix for the Header Image (Garlic Bread 2) */
+.entry-header .image-caption {
+    text-align: left;       /* Aligns text to the left */
+    margin-left: -20px;        /* Removes left padding */
+}
+
+
+/* --- NATURE IMAGE (UNCHANGED FOR PHYSICS) --- */
+.nature-earth-image {
+    float: left;
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #000;
+    shape-outside: circle(50%);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    position: relative;
+    z-index: 100;
+    cursor: grab;
+    transition: transform 0.1s;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.nature-earth-image.is-wrecking-ball {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    margin: 0;
+    float: none;
+    pointer-events: auto;
+    will-change: transform;
+    width: 20vw;
+    height: 20vw;
+}
+
+.nature-earth-image.is-wrecking-ball:active {
+    cursor: grabbing;
+}
+
+.image-placeholder {
+    float: left;
+    width: 20vw; 
+    height: 20vw;
+    border-radius: 50%;
+    shape-outside: circle(50%);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* --- Quote Boxes --- */
+.quote-box {
+    width: 30vw;
+    box-sizing: border-box;
+    padding: 10px 10px; 
+    position: relative;
+    z-index: 5; 
+    display: block;
+    border-radius: 5px;
+}
+
+.quote-box.right {
+    float: right;
+    margin: 20px 0vw 0px 20px; 
+    text-align: left;
+    padding-right: 20px;
+}
+
+.quote-box.left {
+    float: left;
+    margin: 20px 0px 0px -25vw; 
+    text-align: left;
+    padding-left: 20px;
+}
+
+.quote-box.center {
+    float: none;
+    display: block;
+    width: 80%;
+    max-width: none;
+    margin: 40px auto;
+    text-align: center;
+    border-top: 2px solid #e0e0e0;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 30px 10px;
+    clear: both;
+}
+
+.quote-text {
+    display: inline;
+    font-family: "AdvercaseFont", serif; 
+    font-size: 3rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.3;
+    color: #333;
+    margin: 0;
+}
+
+.quote-author {
+    font-family: "NeueMontreal", sans-serif;
+    font-size: 12pt;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: #0a0a0a;
+    display: inline-block;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.quote-author:before {
+    content: "— ";
+}
+
+/* =========================================
+   SPECIAL LAYOUT: HERO WRAPPER
+   ========================================= */
+.hero-entry-wrapper {
+    width: calc(100% - 40px); 
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.hero-entry-wrapper .index-entry {
+    margin-bottom: 0; 
+    min-height: auto; 
+}
+
+/* =========================================
+   8. INTERACTIVE EFFECTS & PHYSICS
+   ========================================= */
+
+/* --- TYPING ANIMATION --- */
+.lead-text.typing-active::after {
+    content: "▋";
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: 4px;
+    font-size: 0.9em;
+    color: #000;
+    animation: blink-cursor 0.9s step-end infinite;
+}
+
+.lead-text.typing-done::after {
+    display: none;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- Particles (Garlic Bread / Art) --- */
+.char-particle {
+    display: inline-block;
+    position: relative;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    white-space: pre;
+    will-change: transform;
+    z-index: 9999;
+}
+
+.char-particle:active {
+    cursor: grabbing;
+}
+
+.char-particle.is-falling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    pointer-events: auto;
+}
+
+.char-placeholder {
+    display: inline-block;
+    opacity: 0;
+    pointer-events: none;
+    white-space: pre;
+}
+
+/* --- Rope Effect (Adult Films) --- */
+.word-particle {
+    display: inline-block;
+    position: relative;
+    cursor: grab;
+    white-space: pre;
+    will-change: transform;
+    user-select: none;
+    z-index: 9999;
+}
+
+.word-particle:active {
+    cursor: grabbing;
+}
+
+.word-particle.is-rope {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+.word-placeholder {
+    display: inline-block;
+    opacity: 0;
+    pointer-events: none;
+    white-space: pre;
+}
+
+/* --- Active State Reset --- */
+.index-entry.effect-active .article-content {
+    transform: none !important;
+    will-change: auto;
+}   
+
+/* =========================================
+   9. PHASE MANAGEMENT
+   ========================================= */
+
+/* --- מצב רגיל (לפני שלוחצים) --- */
+body.phase-static .entry-title {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+/* --- מצב פעיל (אחרי שלוחצים - God Mode) --- */
+body.phase-active .entry-title {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- הטריגר המהבהב (הלחצן) --- */
+#god-trigger {
+    cursor: pointer;
+    display: inline-block;
+    border-bottom: none;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    
+    /* אנימציה רגילה (לולאה של 4 שניות) */
+    animation: 
+        opacity-noise 4s infinite step-end,
+        position-noise 4s infinite step-end;
+}
+
+/* --- מצב ריחוף (HOVER) --- */
+#god-trigger:hover {
+    /* הופך את הכל למהיר ואלים (פי 10 מהר יותר) */
+    animation-duration: 0.4s; 
+}
+
+/* מבטל את האפקט אחרי שהמצב הופעל */
+body.phase-active #god-trigger {
+    pointer-events: none;
+    cursor: default;
+    border-bottom: none;
+    color: inherit;
+    animation: none;
+    opacity: 1;
+}
+
+/* --- הגדרת האנימציות (Keyframes) --- */
+
+/* 1. רעש שקיפות (הבהוב) */
+@keyframes opacity-noise {
+    0%   { opacity: 1; }
+    3%   { opacity: 0.4; }
+    5%   { opacity: 1; }
+    6%   { opacity: 0.1; }
+    8%   { opacity: 1; }
+    
+    25%  { opacity: 1; }
+    26%  { opacity: 0; }
+    27%  { opacity: 1; }
+    28%  { opacity: 0.2; }
+    29%  { opacity: 1; }
+    
+    60%  { opacity: 1; }
+    62%  { opacity: 0.5; }
+    63%  { opacity: 1; }
+    
+    90%  { opacity: 0.1; }
+    92%  { opacity: 1; }
+    94%  { opacity: 0; }
+    96%  { opacity: 1; }
+}
+
+/* 2. רעש מיקום (הקפיצה הגדולה שולבה כאן) */
+@keyframes position-noise {
+    0%   { transform: translate(0, 0); }
+    3%   { transform: translate(1px, 0); }
+    5%   { transform: translate(0, 0); }
+    
+    /* --- הקפיצה הגדולה שביקשת --- */
+    26%  { transform: translate(0, 0); }
+    29%  { transform: translate(750px, -420px); } /* שיגור רחוק */
+    31%  { transform: translate(0, 0); }          /* חזרה למקום */
+    32%  { transform: translate(0, 0); }
+
+    90%  { transform: translate(10px, -2px); } 
+    96%  { transform: translate(0, 0); }
+}
+
+/* =========================================
+   TRANSITION OVERLAY & ANIMATIONS
+   ========================================= */
+
+/* The Shift Effect (Instant Cut + Random Distance) */
+body.is-shifting > *:not(#transition-overlay) {
+    transform: translateX(var(--random-shift, -10vw)); 
+}
+
+/* Overlay Container */
+#transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Loading Image Style */
+.loading-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+/* MODE 1: MIXED FLASH (1 second duration) */
+#transition-overlay.mode-flash {
+    animation: uneven-flash 1s steps(1) forwards;
+    pointer-events: auto;
+}
+
+/* MODE 2: LOADING IMAGE */
+#transition-overlay.mode-loading {
+    opacity: 1;
+    background-color: #000;
+    pointer-events: auto;
+}
+
+#transition-overlay.mode-loading .loading-image {
+    display: block;
+}
+
+/* Uneven Flash Keyframes */
+/* Synchronized to reveal the 2 shifts */
+@keyframes uneven-flash {
+    0%   { opacity: 1; } /* Black Start */
+    10%  { opacity: 0; } /* REVEAL SHIFT 1 */
+    30%  { opacity: 1; } /* Black */
+    
+    50%  { opacity: 0; } /* REVEAL SHIFT 2 (Happens at 0.5s) */
+    
+    70%  { opacity: 1; } /* Black */
+    85%  { opacity: 0; } /* Quick Glimpse */
+    100% { opacity: 1; } /* Black End */
+}
+
+/* =========================================
+   UNCANNY GOD MODE STYLES (Fixed)
+   ========================================= */
+
+/* REMOVE the old body.phase-active block completely */
+
+/* 1. The Overlay for the Sickly Color */
+#uncanny-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998; /* Below the crash overlay (99999), but above content */
+    pointer-events: none; /* Allows you to click through it */
+    
+    /* The Sickly Look */
+    background-color: rgba(180, 200, 200, 0.15); /* Greenish-grey tint */
+    backdrop-filter: sepia(0.2) contrast(1.1) hue-rotate(15deg); /* Applies filter to content BEHIND it */
+    mix-blend-mode: multiply; /* Blends with the white background */
+    
+    opacity: 0;
+    transition: opacity 5s ease-in-out;
+}
+
+/* 2. Activate the Overlay in God Mode */
+body.phase-active #uncanny-overlay {
+    opacity: 1;
+}
+
+/* 3. Optional: Change Background Color of Body safely */
+body.phase-active {
+    background-color: #e6eaea !important; 
+    transition: background-color 5s ease-in-out;
+}
+
+/* =========================================
+   UNCANNY TEXT SHIFT
+   ========================================= */
+
+/* 1. Base Transition (Add this to existing .generaltext if possible, or here) */
+.generaltext {
+    transition: font-size 5s ease-in-out, letter-spacing 5s ease-in-out;
+}
+
+/* 2. Active State (God Mode) */
+body.phase-active .generaltext {
+    font-size: 15pt;       /* Reduced from 16pt by 0.5pt */
+    letter-spacing: 0.8px;   /* Increased spacing */
+    line-height: 1.3;    /* Slightly increased line height */
+}
